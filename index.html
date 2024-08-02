@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paddleboard High Scores</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preload" href="background/back2.jpg" as="image">
     <style>
         body {
@@ -31,6 +31,9 @@
             max-width: 800px;
             margin: 10px auto;
         }
+        .table-container {
+            padding-top: 20px; /* Added padding to the top */
+        }
         .table th, .table td {
             text-align: center;
             vertical-align: middle;
@@ -50,6 +53,32 @@
                 font-size: 24px;
             }
         }
+        .nav-tabs {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+        .nav-tabs .nav-link {
+            color: white;
+            background-color: rgba(48, 43, 43, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: none;
+            border-radius: 0.375rem 0.375rem 0 0;
+        }
+        .nav-tabs .nav-link.active {
+            color: white; /* Keep the text white */
+            background-color: rgba(0, 0, 0, 0.7);
+            border-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, 0.5) transparent;
+        }
+        .nav-tabs .nav-link:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .tab-content {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: none;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 0 0 0.375rem 0.375rem;
+        }
     </style>
 </head>
 <body>
@@ -58,33 +87,99 @@
             <h1>Irklentės rekordai</h1>
         </div>
         <div class="table-container mx-auto">
-            <table class="table table-dark table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Vardas</th>
-                        <th>Laikas</th>
-                        <th>Data</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Dainius</td>
-                        <td>05:14</td>
-                        <td>2024-06-22</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Džiugas</td>
-                        <td>05:52</td>
-                        <td>2024-06-22</td>
-                    </tr>
-                </tbody>
-            </table>
+            <ul class="nav nav-tabs" id="categoryTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="standing-tab" data-bs-toggle="tab" href="#standing" role="tab" aria-controls="standing" aria-selected="true">Stovint</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="sitting-tab" data-bs-toggle="tab" href="#sitting" role="tab" aria-controls="sitting" aria-selected="false">Sėdint</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="boat-tab" data-bs-toggle="tab" href="#boat" role="tab" aria-controls="boat" aria-selected="false">Valtimi</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="categoryTabsContent">
+                <div class="tab-pane fade show active" id="standing" role="tabpanel" aria-labelledby="standing-tab">
+                    <table class="table table-dark table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Vardas</th>
+                                <th>Laikas</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Dainius</td>
+                                <td>05:14</td>
+                                <td>2024-06-22</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Džiugas</td>
+                                <td>05:52</td>
+                                <td>2024-06-22</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="sitting" role="tabpanel" aria-labelledby="sitting-tab">
+                    <table class="table table-dark table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Vardas</th>
+                                <th>Laikas</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Virginija</td>
+                                <td>04:48</td>
+                                <td>2024-08-02</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Erika</td>
+                                <td>04:59</td>
+                                <td>2024-08-02</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Džiugas</td>
+                                <td>05:07</td>
+                                <td>2024-07-31</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="boat" role="tabpanel" aria-labelledby="boat-tab">
+                    <table class="table table-dark table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Vardas</th>
+                                <th>Laikas</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Rička</td>
+                                <td>04:32</td>
+                                <td>2024-06-24</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
